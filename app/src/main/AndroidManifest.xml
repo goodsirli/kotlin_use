@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.kotlinfirstdemo">
+
+    <application
+        android:name=".app.WorkApplication"
+        android:allowBackup="true"
+        android:hardwareAccelerated="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.KotlinFirstDemo">
+        <activity android:name=".greendao.ui.TestGreenDaoActivity"></activity>
+        <activity android:name=".dagger2.DaggerTestActivity" />
+        <activity android:name=".base.BaseActivity" />
+        <activity android:name=".recyclertest.RecyclerTestActivity" />
+        <activity android:name=".weakreference.ui.WeakReferenceShowActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.KotlinFirstDemo.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.CustomViewListActivity"
+            android:theme="@style/Theme.KotlinFirstDemo.NoActionBar">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity> <!--  -->
+        <activity
+            android:name=".view.CustomViewShowActivity"
+            android:theme="@style/Theme.KotlinFirstDemo.NoActionBar" />
+        <activity
+            android:name=".daemon.ui.DaemonShowActivity"
+            android:label="@string/title_activity_daemon_show"
+            android:theme="@style/Theme.KotlinFirstDemo.NoActionBar" />
+
+        <service
+            android:name=".daemon.service.LocalService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".daemon.service.RemoteService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":RemoteProcess" />
+        <service
+            android:name=".daemon.service.SingleTestAlarmService"
+            android:enabled="true"
+            android:exported="true" />
+    </application>
+
+</manifest>
