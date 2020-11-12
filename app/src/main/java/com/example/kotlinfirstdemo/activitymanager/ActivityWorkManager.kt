@@ -87,7 +87,7 @@ class ActivityWorkManager {
         if (listActivity == null) {
             LogUtil.showE("listActivity为空")
         } else {
-            LogUtil.showE("listActivity的size:" + listActivity.size)
+//            LogUtil.showE("listActivity的size:" + listActivity.size)
         }
     }
 }
