@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.kotlinfirstdemo">
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+
     <application
         android:name=".app.WorkApplication"
         android:allowBackup="true"
@@ -11,7 +15,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KotlinFirstDemo">
-        <activity android:name=".greendao.ui.TestGreenDaoActivity"></activity>
+        <activity android:name=".activitymanager.TestActivityUtilActivity1"/>
+        <activity android:name=".activitymanager.TestActivityUtilActivity2"/>
+        <activity android:name=".activitymanager.TestActivityUtilActivity3"/>
+        <activity android:name=".easypermissions.TestEasyPermissionActivity" />
+        <activity android:name=".greendao.ui.TestGreenDaoActivity" />
         <activity android:name=".dagger2.DaggerTestActivity" />
         <activity android:name=".base.BaseActivity" />
         <activity android:name=".recyclertest.RecyclerTestActivity" />

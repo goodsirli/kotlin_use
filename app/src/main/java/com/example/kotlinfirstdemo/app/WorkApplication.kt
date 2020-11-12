@@ -64,7 +64,6 @@ class WorkApplication : MultiDexApplication() {
     var mMaster:DaoMaster?= null
     var mDaoSession:DaoSession?= null
 
-
     fun setDataBase(){
         mHelper = DaoMaster.DevOpenHelper(this,"users-db",null)
         mDb = mHelper?.writableDatabase

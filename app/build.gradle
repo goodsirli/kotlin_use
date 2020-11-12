@@ -87,6 +87,13 @@ dependencies {
     //greendao
     implementation 'org.greenrobot:greendao:3.3.0' // add library
 
+    //ijk
+    implementation 'tv.danmaku.ijk.media:ijkplayer-java:0.8.8'
+    implementation 'tv.danmaku.ijk.media:ijkplayer-armv7a:0.8.8'
+
+    //easypermissions
+    implementation 'pub.devrel:easypermissions:3.0.0'
+
 
 
 }

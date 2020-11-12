@@ -2,11 +2,13 @@ package com.example.kotlinfirstdemo
 
 import android.content.Intent
 import android.view.View
+import com.example.kotlinfirstdemo.activitymanager.TestActivityUtilActivity1
 import com.example.kotlinfirstdemo.base.BaseActivity
 import com.example.kotlinfirstdemo.daemon.ui.DaemonShowActivity
 import com.example.kotlinfirstdemo.dagger2.DaggerTestActivity
 import com.example.kotlinfirstdemo.databinding.ActivityMainBinding
 import com.example.kotlinfirstdemo.databinding.ActivityTestGreenDaoBinding
+import com.example.kotlinfirstdemo.easypermissions.TestEasyPermissionActivity
 import com.example.kotlinfirstdemo.greendao.ui.TestGreenDaoActivity
 
 
@@ -32,6 +34,18 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         mBinding?.tvShowGreenDao?.setOnClickListener(object :View.OnClickListener{
             override fun onClick(v: View?) {
                 startActivity(Intent(this@MainActivity,TestGreenDaoActivity::class.java))
+            }
+        })
+
+        mBinding?.tvEasyPermission?.setOnClickListener(object :View.OnClickListener{
+            override fun onClick(v: View?) {
+                startActivity(Intent(this@MainActivity,TestEasyPermissionActivity::class.java))
+            }
+        })
+
+        mBinding?.tvActivityUtil?.setOnClickListener(object:View.OnClickListener{
+            override fun onClick(v: View?) {
+                startActivity(Intent(this@MainActivity,TestActivityUtilActivity1::class.java))
             }
         })
     }
