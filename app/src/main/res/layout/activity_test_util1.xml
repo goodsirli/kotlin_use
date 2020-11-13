@@ -21,6 +21,20 @@
             android:text="跳转到下一个页面"
             />
 
+        <TextView
+            android:id="@+id/tvContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:background="@color/teal_700"
+            android:gravity="center"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvJump"
+            android:layout_marginTop="20dp"
+            android:hint="显示文本"
+            />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

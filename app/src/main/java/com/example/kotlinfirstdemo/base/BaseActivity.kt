@@ -7,6 +7,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.example.kotlinfirstdemo.activitymanager.ActivityWorkManager
+import com.example.kotlinfirstdemo.rx.RxBus
+import com.example.kotlinfirstdemo.util.LogUtil
+import io.reactivex.disposables.Disposable
+import io.reactivex.functions.Consumer
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
 
@@ -14,7 +18,7 @@ abstract class BaseActivity< T : ViewDataBinding> : AppCompatActivity(),
     EasyPermissions.PermissionCallbacks,
 EasyPermissions.RationaleCallbacks{
 
-    protected val TAG: String = this::class.simpleName!!
+    private var mRxBus: RxBus?= null
     var mIsShowTitle: Boolean? = true
     var mIsShowStatusBar: Boolean? = true
     var mBinding : T ?= null
@@ -26,9 +30,10 @@ EasyPermissions.RationaleCallbacks{
         setContentView(mBinding?.root)
 
         ActivityWorkManager.getInstance().addActivity(this)
+        mRxBus = RxBus.getInstance();
+
         initView()
         initData()
-
     }
 
 
@@ -69,7 +74,6 @@ EasyPermissions.RationaleCallbacks{
         }
     }
 
-
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -96,6 +100,20 @@ EasyPermissions.RationaleCallbacks{
 
     override fun onRationaleDenied(requestCode: Int) {
 
+    }
+
+    //注册RxBus
+    protected fun <T> registerRxBus(eventType:Class<T> , action: Consumer<T>) {
+        val disposable:Disposable? = mRxBus?.doSubscribe(eventType,action,Consumer<Throwable>{
+            LogUtil.showE(it.toString())
+        })
+
+        mRxBus?.addSubscription(this,disposable);
+    }
+
+    //注销RxBus
+    protected fun unBindRxBus(){
+        mRxBus?.unSubscribe(this)
     }
 }
 
