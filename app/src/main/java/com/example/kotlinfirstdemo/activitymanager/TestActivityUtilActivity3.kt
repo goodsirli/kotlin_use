@@ -29,6 +29,5 @@ class TestActivityUtilActivity3 : BaseActivity<ActivityTestUtil1Binding>() {
     }
 
     override fun initData() {
-
     }
 }
